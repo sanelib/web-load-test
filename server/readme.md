@@ -1,5 +1,7 @@
 # Quick setup
 
+##TODO: [https://www.sitepoint.com/how-to-create-a-node-js-cluster-for-speeding-up-your-apps/]
+
 ```
 
 npm list -g --depth 0
