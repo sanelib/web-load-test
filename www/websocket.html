@@ -10,14 +10,13 @@
 <textarea cols=60 rows=6></textarea>
 <button>send</button>
 <div id=output></div>
+<p>Refer: <a href="http://www.websocket.org/echo.html">here</a>, <a href="https://www.tutorialspoint.com/html5/html5_websocket.htm">here</a> and <a href="https://www.pubnub.com/blog/nodejs-websocket-programming-examples/">here</a><p>
 <script>
-    // http://www.websocket.org/echo.html
-
+    
     var button = document.querySelector("button"),
         output = document.querySelector("#output"),
         textarea = document.querySelector("textarea"),
-        // wsUri = "ws://echo.websocket.org/",
-        wsUri = "ws://127.0.0.1/",
+        wsUri = "ws://echo.websocket.org",
         websocket = new WebSocket(wsUri);
 
     button.addEventListener("click", onClickButton);
