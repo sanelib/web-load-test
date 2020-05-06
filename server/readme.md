@@ -1,6 +1,8 @@
 # Quick setup
 
 ##TODO: [https://www.sitepoint.com/how-to-create-a-node-js-cluster-for-speeding-up-your-apps/]
+##TODO: [https://hashnode.com/post/10-things-you-shouldnt-do-while-running-nodejs-in-production-cisab2fyu0s9oth5341faywcw]
+##TODO: Compare https://github.com/websockets/ws vs native.
 
 ```
 

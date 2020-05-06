@@ -66,3 +66,6 @@ $ sudo ss -tulwn
 
 ```
 
+##System sockets
+Refer this link: [https://easyengine.io/tutorials/linux/sysctl-conf/]
+
