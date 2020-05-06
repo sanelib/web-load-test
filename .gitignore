@@ -1,0 +1,7 @@
+dist
+node_modules
+
+bin
+obj
+coverage
+__test__

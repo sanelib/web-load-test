@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.col {
+	float:left;
+	width:50%;
+	left:50%;
+}
+</style>
+</head>
+
+<body>
+<div class=col>
+  <h2>Check Console</h2>
+  <ul id="es-messages">
+  </ul>
+</div>
+
+
+<script src="eventsource-polyfill.js"></script>
+
+<script>
+
+ var source = new EventSource("http://localhost:9001/events/0");
+ source.onmessage = (e) => {
+	  console.log(e.data);
+	  
+  // Do something - event data etc will be in e.data
+};
+
+</script>
+</body>

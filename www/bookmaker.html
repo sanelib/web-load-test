@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .slidecontainer {
+      width: 200px;
+      /* Width of the outside container */
+    }
+
+    /* The slider itself */
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 15px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+
+    /* Mouse-over effects */
+    .slider:hover {
+      opacity: 1;
+      /* Fully shown on mouse-over */
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-gap: 10px;
+      background-color: #2196F3;
+      padding: 10px;
+    }
+
+    .grid-container>div {
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
+
+    .title {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+
+    .home-team {
+      grid-row-start: 2;
+      grid-row-end: 4;
+    }
+
+    .away-team {
+      grid-row-start: 4;
+      grid-row-end: 6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>T20 Matches</h1>
+
+  <div class="slidecontainer">
+    <input type="range" min="0" max="10" value="2" class="slider" id="spread">
+  </div>
+
+  <hr>
+
+  <div class="grid-container">
+    <div class="title">Mumbai V/s Chennai</div>
+    <div class="home-team">Mumbai</div>
+    <div class="item3">1.20</div>
+    <div class="item4">1.21</div>
+    <div class="item5">$450</div>
+    <div class="item6">$260</div>
+    <div class="away-team">Chennai</div>
+    <div class="item8">8</div>
+  </div>
+
+  <p>You can refer to line numbers when placing grid items.</p>
+
+  <p>This example uses the addEventListener() method to attach a "keypress" event to an input element.</p>
+
+  <p>Press a key inside the text field to set a red background color.</p>
+
+  <input type="text" id="demo">
+
+  <p id='message'></p>
+
+  <script>
+
+    var keys = [];
+
+    document.getElementById("demo").addEventListener("keypress", checkKeyPressed, false);
+
+    window.addEventListener("keydown", keysPressed, false);
+    window.addEventListener("keyup", keysReleased, false);
+
+    var price = {
+      home: {
+
+      },
+      away: {
+
+      }
+    }
+
+    function checkKeyPressed(e) {
+
+      switch (e.keyCode) {
+        case 37:
+          // left key pressed
+          // Increase spread
+          break;
+        case 38:
+          // up key pressed
+          // increase rate
+          break;
+        case 39:
+          // right key pressed
+          // descrase spread
+          break;
+        case 40:
+          // down key pressed
+          // decrease rate
+          break;
+      }
+
+      document.getElementById('message').innerHTML = JSON.stringify(evt);
+
+      //document.getElementById("demo").style.backgroundColor = "red";
+    }
+
+    function keysPressed(e) {
+
+
+      if (e.ctrlKey && e.keyCode == 'F'.charCodeAt(0)) {
+        //  e.preventDefault();
+        // alert("Shotcut Pressed")
+      }
+
+      // store an entry for every key pressed
+      keys[e.keyCode] = true;
+
+      // Ctrl + Shift + 5
+      if (keys[17] && keys[16] && keys[53]) {
+        showMessage('Ctrl + Shift + 5')
+      }
+
+      // Ctrl + f
+      if (keys[17] && keys[70]) {
+        showMessage('Ctrl + f')
+
+        // prevent default browser behavior
+        e.preventDefault();
+      }
+    }
+
+    function keysReleased(e) {
+      // mark keys that were released
+      keys[e.keyCode] = false;
+    }
+
+    function showMessage(str) {
+      document.getElementById('message').innerHTML = JSON.stringify(str);
+    }
+
+    function timedText() {
+      setTimeout(myTimeout1, 2000)
+      setTimeout(myTimeout2, 4000)
+      setTimeout(myTimeout3, 6000)
+    }
+
+    function myTimeout1() {
+      document.getElementById("demo").innerHTML = "2 seconds";
+    }
+
+    function myTimeout2() {
+      document.getElementById("demo").innerHTML = "4 seconds";
+    }
+
+    function myTimeout3() {
+      document.getElementById("demo").innerHTML = "6 seconds";
+    }
+
+    timedText();
+
+    var slider = document.getElementById("spread");
+    var output = document.getElementById("message");
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function () {
+      output.innerHTML = this.value;
+    }
+
+  </script>
+
+</body>
+
+</html>

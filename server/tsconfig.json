@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+     "noImplicitAny": true,
+     "strictNullChecks": true,
+     "declaration": false,
+     "removeComments": true,
+     "declarationMap": false,
+     "sourceMap": true,
+     "esModuleInterop": true,
+     "moduleResolution": "Node",
+     "module": "ESNext",
+     "lib": ["ESNext"],
+     "types": ["node", "jest"],
+     "target": "ESNext",
+     "rootDirs": ["src"],
+     "typeRoots": ["./types", "./@types", "node_modules/@types"],
+     "allowJs": false,
+     "outDir": "dist",
+   },
+   "include": ["src"],
+   "exclude": ["node_modules", "__tests__", "coverage", "dist"],
+   "ts-node": {
+     "compiler": "typescript",
+   }
+ }
