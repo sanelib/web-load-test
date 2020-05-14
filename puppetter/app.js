@@ -1,19 +1,22 @@
-const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer');
 
 async function startworker() {
 
-	// Replace puppeteer.launch with puppeteer.connect
-	const browser = await puppeteer.connect({
-		browserWSEndpoint: 'ws://localhost:3000'
-	});
-
-	console.log(await browser.version());
-
-	// The rest of your script remains the same
+	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
-	await page.goto('https://atcults.com');
-	//await page.screenshot({ path: 'screenshot.png' });
-	//page.close();
+  
+	await page.goto('https://cloudfront.radheexch.com/home');
+	await page.waitForSelector('title');
+  
+	// Executes Navigation API within the page context
+	const metrics = await page.evaluate(() => JSON.stringify(window.performance));
+  
+	await browser.close();
+
+	// Parses the result to JSON
+	//console.info(JSON.parse(metrics));
+  
+	return JSON.parse(metrics);
 }
 
 const cluster = require('cluster');
@@ -23,13 +26,14 @@ if (cluster.isMaster) {
 	console.log(`Master ${process.pid} is running`);
 
 	// Fork workers.
-	for (let i = 0; i < numCPUs * 3; i++) {
+	for (let i = 0; i < numCPUs; i++) {
 		cluster.fork();
 	}
 
 	cluster.on('exit', (worker, code, signal) => {
 		console.log(`worker ${worker.process.pid} died`);
 	});
+
 } else {
 	
 	startworker()
