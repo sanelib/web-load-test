@@ -12,15 +12,6 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\app.js"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Cluster",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}\\cluster.js"
         }
     ]
 }

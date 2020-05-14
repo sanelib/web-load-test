@@ -3,6 +3,7 @@
   "repository": "repository",
   "license": "MIT",
   "dependencies": {
+    "puppeteer": "^3.0.4",
     "puppeteer-core": "^3.0.2"
   }
 }
