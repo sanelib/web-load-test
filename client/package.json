@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "bunyan": "^1.8.12",
-    "eventsource": "^1.0.7",
+    "eventsource": "^2.0.2",
     "yargs": "^15.3.1"
   }
 }
